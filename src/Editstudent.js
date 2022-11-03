@@ -38,7 +38,6 @@ let formValues={
   }
 }
 
-const [loading, setLoading] = useState(true);
 const [formData,setFormdata]=useState(formValues); 
 
 
@@ -57,7 +56,6 @@ const validateForm = (formData1) => {
 };
 
 useEffect(() => {
-  setLoading(true);
   try{
 async function getData(rowId){
     const response = await axios.get(`https://6341636a20f1f9d7997200a7.mockapi.io/student/${rowId}`);
@@ -81,12 +79,10 @@ async function getData(rowId){
 
   }
   
-setLoading(false);
 },[]);
 
 const handleSubmit = async (formData, { resetForm }) => {
   setTimeout(async () => {
-    setLoading(true);
     try {
    
       await axios.put(`https://6341636a20f1f9d7997200a7.mockapi.io/student/${formData.id}`,{
@@ -107,7 +103,6 @@ const handleSubmit = async (formData, { resetForm }) => {
     }catch(error){
 
     }
-    setLoading(false);
     resetForm();
   }, 1000);
 };

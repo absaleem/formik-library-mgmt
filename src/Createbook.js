@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -6,7 +6,6 @@ import { useNavigate,Link } from 'react-router-dom';
 import Listbooks from './Listbooks';
 import Dashboard from './Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { Formik } from "formik";
 
 
@@ -21,13 +20,11 @@ function Createstudent() {
       return errors;
     };
  
-const [loading, setLoading] = useState(true);
 
 const handleSubmit = async (formData, { resetForm }) => {
   setTimeout(async () => {
-    setLoading(true);
     try {
-     const response=await axios.post("https://6341636a20f1f9d7997200a7.mockapi.io/books",{
+     await axios.post("https://6341636a20f1f9d7997200a7.mockapi.io/books",{
        name:formData.name,
        author:formData.author,
        publications:formData.publications,  
@@ -39,7 +36,6 @@ const handleSubmit = async (formData, { resetForm }) => {
   }catch(error){
 
   }
-  setLoading(false);
     resetForm();
   }, 3000);
 };

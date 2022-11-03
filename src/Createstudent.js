@@ -27,13 +27,11 @@ function Createstudent() {
       return errors;
     };
  
-const [loading, setLoading] = useState(true);
 
 const handleSubmit = async (formData, { resetForm }) => {
   setTimeout(async () => {
-    setLoading(true);
     try {
-     const response=await axios.post("https://6341636a20f1f9d7997200a7.mockapi.io/student",{
+     await axios.post("https://6341636a20f1f9d7997200a7.mockapi.io/student",{
        name:formData.name,
        age:formData.age,
        email:formData.email,
@@ -52,7 +50,6 @@ const handleSubmit = async (formData, { resetForm }) => {
   }catch(error){
 
   }
-  setLoading(false);
     resetForm();
   }, 3000);
 };
