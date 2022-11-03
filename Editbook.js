@@ -49,7 +49,7 @@ async function getData(rowId){
 
   }
   
-},[]);
+});
 
 const handleSubmit = async (formData, { resetForm }) => {
   setTimeout(async () => {

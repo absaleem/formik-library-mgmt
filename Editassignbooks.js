@@ -51,13 +51,13 @@ async function getData(rowId){
 
   }
   
-},[]);
+});
 
 const handleSubmit = async (formData, { resetForm }) => {
   setTimeout(async () => {
     try {
    
-      const response=await axios.put(`https://6341636a20f1f9d7997200a7.mockapi.io/books_student/${formData.id}`,{
+      await axios.put(`https://6341636a20f1f9d7997200a7.mockapi.io/books_student/${formData.id}`,{
         id:formData.id,
         student_name:formData.student_name,
         book_name:formData.book_name,
