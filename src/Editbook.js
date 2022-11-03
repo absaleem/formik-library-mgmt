@@ -47,9 +47,8 @@ async function getData(rowId){
 
   }catch(error){
 
-  }
-  
-},[params.userId]);
+  }  
+});
 
 const handleSubmit = async (formData, { resetForm }) => {
   setTimeout(async () => {
