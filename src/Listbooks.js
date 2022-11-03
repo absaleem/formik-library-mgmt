@@ -30,7 +30,7 @@ useEffect(() => {
 },[]);
 
 const handleProceed = (id,status) => {
-    if(status==1){  navigate(`/Editbook/${id}`); }else{  }
+    if(status===1){  navigate(`/Editbook/${id}`); }else{  }
   };
 
   async function onDeleteData(id){

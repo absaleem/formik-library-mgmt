@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -6,7 +6,6 @@ import { useNavigate,Link } from 'react-router-dom';
 import Listassignbooks from './Listassignbooks';
 import Dashboard from './Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { Formik } from "formik";
 
 
@@ -22,13 +21,11 @@ function Assignbooks() {
       return errors;
     };
  
-const [loading, setLoading] = useState(true);
 
 const handleSubmit = async (formData, { resetForm }) => {
   setTimeout(async () => {
-    setLoading(true);
     try {
-     const response=await axios.post("https://6341636a20f1f9d7997200a7.mockapi.io/books_student",{
+      await axios.post("https://6341636a20f1f9d7997200a7.mockapi.io/books_student",{
         student_name:formData.student_name,
         book_name:formData.book_name,
         borrowed_date:formData.borrowed_date, 
@@ -41,7 +38,6 @@ const handleSubmit = async (formData, { resetForm }) => {
   }catch(error){
 
   }
-  setLoading(false);
     resetForm();
   }, 3000);
 };

@@ -25,7 +25,6 @@ let formValues={
   address:"",
   education:"",
   joined_date:"",
-  address:"",
   error:{
   name:"",
   age:"",
@@ -36,7 +35,6 @@ let formValues={
   address:"",
   education:"",
   joined_date:"",
-  address:""
   }
 }
 
@@ -91,7 +89,7 @@ const handleSubmit = async (formData, { resetForm }) => {
     setLoading(true);
     try {
    
-      const response=await axios.put(`https://6341636a20f1f9d7997200a7.mockapi.io/student/${formData.id}`,{
+      await axios.put(`https://6341636a20f1f9d7997200a7.mockapi.io/student/${formData.id}`,{
         id:formData.id,
         name:formData.name,
         age:formData.age,
